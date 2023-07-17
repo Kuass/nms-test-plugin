@@ -9,7 +9,7 @@ interface Corpses {
     fun spawnCorpse(p: Player, overrideName: String?, loc: Location, items: Inventory, facing: Int): CorpseData
     fun removeCorpse(data: CorpseData)
     fun getNextEntityId(): Int
-	val allCorpses: List<CorpseData>
+    val allCorpses: List<CorpseData>
     fun registerPacketListener(p: Player)
     fun addNbtTagsToSlime(slime: LivingEntity)
 }

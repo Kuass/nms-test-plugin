@@ -7,10 +7,8 @@ import org.bukkit.event.player.PlayerInteractEvent
 class PlayerInteractEvent : Listener {
     @EventHandler
     fun onPlayerInteractEvent(e: PlayerInteractEvent) {
-        if (e.player != null) {
-            val p = e.player
-            p.sendMessage("action: ${e.action}")
+        val p = e.player
+        p.sendMessage("action: ${e.action}")
 
-        }
     }
 }

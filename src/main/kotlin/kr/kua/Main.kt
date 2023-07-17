@@ -32,7 +32,7 @@ class Main : JavaPlugin {
         plugin = this
         corpses = NMSCorpses_v1_16_5_R1()
 
-        if(!Bukkit.getPluginManager().isPluginEnabled("FurnitureLib")) {
+        if (!Bukkit.getPluginManager().isPluginEnabled("FurnitureLib")) {
             Bukkit.getPluginManager().disablePlugin(this);
         }
 

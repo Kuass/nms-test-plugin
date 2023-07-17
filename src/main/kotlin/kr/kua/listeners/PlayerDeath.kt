@@ -1,7 +1,6 @@
 package kr.kua.listeners
 
 import kr.kua.Main
-import kr.kua.Util
 import org.bukkit.Bukkit
 import org.bukkit.Location
 import org.bukkit.event.EventHandler
@@ -27,28 +26,17 @@ class PlayerDeath : Listener {
         e.drops.clear()
     }
 
-    private fun yawToFacing(yaw: Float): Int {
-        var facing = ROTATION_NORTH
-        if (yaw >= -45 && yaw <= 45) {
-            facing = ROTATION_SOUTH
-        } else if (yaw in 45.0..135.0) {
-            facing = ROTATION_WEST
-        } else if (yaw <= -45 && yaw >= -135) {
-            facing = ROTATION_EAST
-        } else if (yaw <= -135 && yaw >= -225) {
-            facing = ROTATION_NORTH
-        } else if (yaw <= -225 && yaw >= -315) {
-            facing = ROTATION_WEST
-        } else if (yaw in 135.0..225.0) {
-            facing = ROTATION_NORTH
-        } else if (yaw in 225.0..315.0) {
-            facing = ROTATION_EAST
-        } else if (yaw >= 315) {
-            facing = ROTATION_SOUTH
-        } else if (yaw <= -315) {
-            facing = ROTATION_SOUTH
-        }
-        return facing
+    private fun yawToFacing(yaw: Float): Int = when {
+        yaw >= -45 && yaw <= 45 -> ROTATION_SOUTH
+        yaw in 45.0..135.0 -> ROTATION_WEST
+        yaw <= -45 && yaw >= -135 -> ROTATION_EAST
+        yaw <= -135 && yaw >= -225 -> ROTATION_NORTH
+        yaw <= -225 && yaw >= -315 -> ROTATION_WEST
+        yaw in 135.0..225.0 -> ROTATION_NORTH
+        yaw in 225.0..315.0 -> ROTATION_EAST
+        yaw >= 315 -> ROTATION_SOUTH
+        yaw <= -315 -> ROTATION_SOUTH
+        else -> ROTATION_NORTH
     }
 
     private val offset = 2f

@@ -7,7 +7,6 @@ import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
-import org.bukkit.inventory.Inventory
 
 class Wak : CommandExecutor {
 
@@ -92,7 +91,7 @@ class Wak : CommandExecutor {
                         try {
                             Main.plugin.corpses.removeCorpse(it)
                             count++
-                        }catch (e: Exception) {
+                        } catch (e: Exception) {
                             sender.sendMessage("${ChatColor.RED}Error: ${e.message}")
                         }
                     }
